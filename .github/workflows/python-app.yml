@@ -6,7 +6,7 @@ name: py
 
 on:
   schedule:
-    - cron: "0 0 * * *" #runs at 00:00 UTC everyday
+    - cron: "0 0 * * 1,4"
 
 jobs:
   build:
@@ -25,3 +25,10 @@ jobs:
         env:
           ITALIAANDREALORENZON_YOUTUBE_TOKEN: ${{ secrets.ITALIAANDREALORENZON_YOUTUBE_TOKEN }}
           ITALIAANDREALORENZON_MAPBOX_TOKEN: ${{ secrets.ITALIAANDREALORENZON_MAPBOX_TOKEN }}
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Updated geojson data"
+          git push
