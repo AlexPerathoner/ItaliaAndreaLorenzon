@@ -5,7 +5,7 @@
         "type": "Feature",
         "properties": {
             "nome": "Mantova",
-            "url": "https://www.youtube.com/watch?v=SGz0iTywpUk"
+            "url": "https://www.youtube.com/embed/SGz0iTywpUk"
         },
         "geometry": {
           "type": "Point",
@@ -19,7 +19,7 @@
         "type": "Feature",
         "properties": {
             "nome": "Roma",
-            "url": "https://www.youtube.com/watch?v=SGz0iTywpUk"
+            "url": "https://www.youtube.com/embed/SGz0iTywpUk"
         },
         "geometry": {
           "type": "Point",

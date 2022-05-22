@@ -27,8 +27,10 @@ map.on("load", () => {
 
 	map.on("click", "place-layer", (e) => {
 		const coordinates = e.features[0].geometry.coordinates.slice();
-		const description = e.features[0].properties.name;
-		console.log(e.features[0].properties)
+		const nome = e.features[0].properties.nome;
+		const url = e.features[0].properties.url;
+
+		const description = "<h2>" + nome + "</h2><iframe width='560' height='315' src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
 
 		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
