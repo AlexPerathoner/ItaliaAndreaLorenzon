@@ -1,5 +1,4 @@
-mapboxgl.accessToken =
-	"pk.eyJ1IjoicGxhbmVtYWQiLCJhIjoiemdYSVVLRSJ9.g3lbg_eN0kztmsfIPxa9MQ";
+mapboxgl.accessToken = "pk.eyJ1IjoicGxhbmVtYWQiLCJhIjoiemdYSVVLRSJ9.g3lbg_eN0kztmsfIPxa9MQ";
 const map = new mapboxgl.Map({
 	container: "map",
 	style: "mapbox://styles/mapbox/light-v9",
