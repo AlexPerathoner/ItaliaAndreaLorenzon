@@ -29,7 +29,7 @@ map.on("load", () => {
 		const nome = e.features[0].properties.nome;
 		const url = e.features[0].properties.url;
 
-		const description = "<h2>" + nome + "</h2><iframe width='560' height='315' src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+		const description = "<h2>" + nome + "</h2><div class='iframe-container'><iframe src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>"
 
 		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
