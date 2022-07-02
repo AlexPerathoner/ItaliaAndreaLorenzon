@@ -10,6 +10,9 @@ YOUTUBE_TOKEN = os.environ.get('ITALIAANDREALORENZON_YOUTUBE_TOKEN')
 
 #https://python.tutorialink.com/extract-individual-links-from-a-single-youtube-playlist-link-using-python/
 urls = ['https://www.youtube.com/playlist?list=PLokTFft4f9ScnHqKdGcIQFKlYGczbbUS9', 'https://www.youtube.com/watch?v=hUOCOnynjWM&list=PLokTFft4f9SdmA43ku7l3fZf0JsIP_Il5', 'https://www.youtube.com/watch?v=cYSkKnAIZiQ&list=PLokTFft4f9SfAvfTR_4_NssXFPknqPYnZ']
+titles = []
+links = []
+
 for url in urls:
     query = parse_qs(urlparse(url).query, keep_blank_values=True)
     playlist_id = query["list"][0]
@@ -28,9 +31,6 @@ for url in urls:
         response = request.execute()
         playlist_items += response["items"]
         request = youtube.playlistItems().list_next(request, response)
-
-    titles = []
-    links = []
 
     print(f"total: {len(playlist_items)}")
     for t in playlist_items:
