@@ -9,7 +9,17 @@ MAPBOX_TOKEN = os.environ.get('ITALIAANDREALORENZON_MAPBOX_TOKEN')
 YOUTUBE_TOKEN = os.environ.get('ITALIAANDREALORENZON_YOUTUBE_TOKEN')
 
 #https://python.tutorialink.com/extract-individual-links-from-a-single-youtube-playlist-link-using-python/
-urls = ['https://www.youtube.com/playlist?list=PLokTFft4f9ScnHqKdGcIQFKlYGczbbUS9', 'https://www.youtube.com/watch?v=hUOCOnynjWM&list=PLokTFft4f9SdmA43ku7l3fZf0JsIP_Il5', 'https://www.youtube.com/watch?v=cYSkKnAIZiQ&list=PLokTFft4f9SfAvfTR_4_NssXFPknqPYnZ']
+urls = ['https://www.youtube.com/watch?v=QP1nnmEdEAY&list=PLokTFft4f9SdCFrHp0A-Pu-gnWUdaYUHm&pp=iAQB', # le città
+        'https://www.youtube.com/watch?v=hUOCOnynjWM&list=PLokTFft4f9SdmA43ku7l3fZf0JsIP_Il5', # borghi più fescion
+        'https://www.youtube.com/watch?v=XXDZxA7YVlg&list=PLokTFft4f9SdeRp88zb9fh0YMTV79bDNY', # guide per chi non ha tempo da perdere
+        'https://www.youtube.com/watch?v=e7N6Jhfq8uU&list=PLokTFft4f9Scm-z4BRkk7bW4pUo-tpPB_&pp=iAQB', # puglia
+        'https://www.youtube.com/watch?v=33nnoaBki_8&list=PLokTFft4f9SfPyx_ReqcAHjp02jxw12kc&pp=iAQB', # trentino alto adige
+        'https://www.youtube.com/watch?v=MscZgGxSErM&list=PLokTFft4f9SdlJ8K87td26tY1F1IjnAdF&pp=iAQB', # umbria
+        'https://www.youtube.com/watch?v=hKHt54JBHXw&list=PLokTFft4f9SdoA2j1O7ytKgF2GvZ-2mvm&pp=iAQB', # toscana
+        'https://www.youtube.com/watch?v=uQspCBa__c0&list=PLokTFft4f9ScnUIuKhl5sTpfDeX1xNvXm&pp=iAQB', # veneto
+        'https://www.youtube.com/watch?v=QP1nnmEdEAY&list=PLokTFft4f9Sdnz532tDMQITG6FqiWWEvZ&pp=iAQB', # emilia romagna
+        'https://www.youtube.com/watch?v=cYSkKnAIZiQ&list=PLokTFft4f9SfAvfTR_4_NssXFPknqPYnZ&pp=iAQB', # borghi più mai sentiti
+        ]
 titles = []
 links = []
 
