@@ -62,8 +62,12 @@ for i in range(len(titles)):
     dict["properties"] = {}
     dict["properties"]["nome"] = title
     dict["properties"]["url"] = link
+    print(title, link)
     
     response = requests.get("https://api.mapbox.com/geocoding/v5/mapbox.places/"+title+".json?access_token="+MAPBOX_TOKEN+"&country=it&limit=1").json()
+    if len(response["features"]) == 0:
+        print("No results found.")
+        continue
     dict["geometry"] = response["features"][0]["geometry"]
     features.append(dict)
     
