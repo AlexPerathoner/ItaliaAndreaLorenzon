@@ -2,7 +2,7 @@
 
 Live on [alexperathoner.github.io/ItaliaAndreaLorenzon/](https://alexperathoner.github.io/ItaliaAndreaLorenzon/).
 
-[Andrea Lorenzon](https://www.youtube.com/c/AndreaLorenzon) is an Italian youtuber who has been uploading videos showing small towns in an interesting way. These videos are available [here](https://www.youtube.com/playlist?list=PLokTFft4f9ScnHqKdGcIQFKlYGczbbUS9).
+[Andrea Lorenzon](https://www.youtube.com/c/AndreaLorenzon) is an Italian youtuber who has been uploading videos showing small towns in an interesting way. These videos are available [here](https://www.youtube.com/watch?v=QP1nnmEdEAY&list=PLokTFft4f9SdCFrHp0A-Pu-gnWUdaYUHm).
 
 ## How it works
 
