@@ -1,4 +1,4 @@
-mapboxgl.accessToken = "pk.eyJ1IjoicGxhbmVtYWQiLCJhIjoiemdYSVVLRSJ9.g3lbg_eN0kztmsfIPxa9MQ";
+mapboxgl.accessToken = "pk.eyJ1IjoiYWxleHBlcmEiLCJhIjoiY2ttczhzeDk3MGZoejJucDllZHd4NmhmayJ9.hbDEvNBQXrOlh-kFYlnOjQ";
 const map = new mapboxgl.Map({
 	container: "map",
 	style: "mapbox://styles/mapbox/light-v9",
@@ -27,9 +27,16 @@ map.on("load", () => {
 	map.on("click", "place-layer", (e) => {
 		const coordinates = e.features[0].geometry.coordinates.slice();
 		const nome = e.features[0].properties.nome;
-		const url = e.features[0].properties.url;
+		let urls = []
+		e.features.forEach((feature) => {
+			urls.push(JSON.parse(feature.properties.url))
+		})
+		urls = [...new Set(urls)] // unique
 
-		const description = "<h2>" + nome + "</h2><div class='iframe-container'><iframe src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>"
+		let description = "<h2>" + nome + "</h2>";
+		urls.forEach((url) => {
+			description += "<div class='iframe-container'><iframe src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><br><br></div>"
+		})
 
 		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;

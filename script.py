@@ -20,8 +20,8 @@ urls = ['https://www.youtube.com/watch?v=QP1nnmEdEAY&list=PLokTFft4f9SdCFrHp0A-P
         'https://www.youtube.com/watch?v=QP1nnmEdEAY&list=PLokTFft4f9Sdnz532tDMQITG6FqiWWEvZ&pp=iAQB', # emilia romagna
         'https://www.youtube.com/watch?v=cYSkKnAIZiQ&list=PLokTFft4f9SfAvfTR_4_NssXFPknqPYnZ&pp=iAQB', # borghi più mai sentiti
         ]
-titles = []
-links = []
+
+results = {}
 
 for url in urls:
     query = parse_qs(urlparse(url).query, keep_blank_values=True)
@@ -42,34 +42,31 @@ for url in urls:
         playlist_items += response["items"]
         request = youtube.playlistItems().list_next(request, response)
 
-    print(f"total: {len(playlist_items)}")
+    print(f"items in playlist {url}: {len(playlist_items)}")
     for t in playlist_items:
         if(t["snippet"]["title"] != "Private video"):
             #https://stackoverflow.com/a/60738277/6884062
-            titles.append(re.findall(r'\b[A-Z]+(?:\s+[A-Z]+)*\b', t["snippet"]["title"])[0])
-            links.append('https://www.youtube.com/embed/' + t["snippet"]["resourceId"]["videoId"])
-
-print(titles)
-print(links)
+            titles_in_link = re.findall(r'\b[A-Z]+(?:\s+[A-Z]+)*\b', t["snippet"]["title"])
+            for title in titles_in_link:
+                if title not in results:
+                    results[title] = []
+                results[title].append('https://www.youtube.com/embed/' + t["snippet"]["resourceId"]["videoId"])
 
 features = []
-for i in range(len(titles)):
-    title = titles[i]
-    link = links[i]
-
-    dict = {}
-    dict["type"] = "Feature"
-    dict["properties"] = {}
-    dict["properties"]["nome"] = title
-    dict["properties"]["url"] = link
-    print(title, link)
+for (title, links) in results.items():
+    feat = {}
+    feat["type"] = "Feature"
+    feat["properties"] = {}
+    feat["properties"]["nome"] = title
+    feat["properties"]["url"] = links
+    print(title, links)
     
     response = requests.get("https://api.mapbox.com/geocoding/v5/mapbox.places/"+title+".json?access_token="+MAPBOX_TOKEN+"&country=it&limit=1").json()
-    if len(response["features"]) == 0:
+    if ("features" not in response) or len(response["features"]) == 0:
         print("No results found.")
         continue
-    dict["geometry"] = response["features"][0]["geometry"]
-    features.append(dict)
+    feat["geometry"] = response["features"][0]["geometry"]
+    features.append(feat)
     
 
 geojson = {}
